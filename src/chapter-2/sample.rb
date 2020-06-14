@@ -22,3 +22,16 @@ puts 10.to_s \
 # 複数行コメントでも
 # こっちの方が一般的っぽいよ
 # rubocop のデフォルト設定だと、=begin, =end は warning になってたよ
+
+puts 123
+puts "Hello"
+puts [1 ,2, 3]
+puts ['hoge' ,2, true]
+
+hash = {
+  'japan' => 'yen',
+  'us' => 'dollar',
+  'india' => 'rupee',
+}
+
+puts hash
