@@ -1,13 +1,10 @@
 # 3つの整数を受け取り、それぞれ16進数に変換した文字列を返す
 def to_hex(r, g, b)
-  raise 'Unexpected parameter' if !(0..255).include?(r)
-  raise 'Unexpected parameter' if !(0..255).include?(g)
-  raise 'Unexpected parameter' if !(0..255).include?(b)
+  [r, g, b].each do |n|
+    raise 'Unexpected parameter' if !(0..255).include?(n)
+  end
 
-  r_s = r.to_s(16)
-  g_s = g.to_s(16)
-  b_s = b.to_s(16)
-
+  r_s, g_s, b_s = [r, g, b].map { |n| n.to_s(16) }
   "##{r_s.rjust(2, '0')}#{g_s.rjust(2, '0')}#{b_s.rjust(2, '0')}"
 end
 
@@ -20,5 +17,5 @@ def to_ints(hex)
   g_s = "#{hex[3..4]}"
   b_s = "#{hex[5..6]}"
 
-  [r_s.to_i(16), g_s.to_i(16), b_s.to_i(16)]
+  [r_s, g_s, b_s].map { |s| s.to_i(16) }
 end
