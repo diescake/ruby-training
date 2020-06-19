@@ -14,5 +14,6 @@ def to_ints(hex)
   raise 'Unexpected parameter' if hex.length != 7
   raise 'Unexpected parameter' if hex[0] != '#'
 
-  [hex[1..2], hex[3..4],hex[5..6]].map(&:hex)
+  hex.scan(/\w\w/).map(&:hex)
+  # [hex[1..2], hex[3..4],hex[5..6]].map(&:hex)
 end
