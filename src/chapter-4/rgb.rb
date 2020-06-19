@@ -8,11 +8,7 @@ def to_hex(r, g, b)
   g_s = g.to_s(16)
   b_s = b.to_s(16)
 
-  r_s = "0#{r_s}" if r_s.length == 1
-  g_s = "0#{g_s}" if g_s.length == 1
-  b_s = "0#{b_s}" if b_s.length == 1
-
-  "##{r_s}#{g_s}#{b_s}"
+  "##{r_s.rjust(2, '0')}#{g_s.rjust(2, '0')}#{b_s.rjust(2, '0')}"
 end
 
 # 16進数文字列を受け取り、R,G,B のそれぞれを10進数の整数に変換した値を配列として返す
