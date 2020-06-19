@@ -4,12 +4,9 @@ def to_hex(r, g, b)
     raise 'Unexpected parameter' if !(0..255).include?(n)
   end
 
-  hex = [r, g, b]
-    .map { |n| n.to_s(16) }
-    .map { |s| s.rjust(2, '0') }
-    .join
-
-  '#' + hex
+  [r, g, b].reduce('#') do |hex, n|
+    hex + n.to_s(16).rjust(2, '0')
+  end
 end
 
 # 16進数文字列を受け取り、R,G,B のそれぞれを10進数の整数に変換した値を配列として返す
