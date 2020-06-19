@@ -14,9 +14,9 @@ def to_ints(hex)
   raise 'Unexpected parameter' if hex.length != 7
   raise 'Unexpected parameter' if hex[0] != '#'
 
-  r_s = "#{hex[1..2]}"
-  g_s = "#{hex[3..4]}"
-  b_s = "#{hex[5..6]}"
+  r_s = hex[1..2]
+  g_s = hex[3..4]
+  b_s = hex[5..6]
 
-  [r_s, g_s, b_s].map { |s| s.to_i(16) }
+  [r_s, g_s, b_s].map(&:hex)
 end
